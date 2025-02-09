@@ -215,7 +215,7 @@ INFO is a plist used as a communication channel."
                  (locale . ,locale)
                  (taxonomies . '())
                  (blackfriday . ,blackfriday)))
-         (data `,(append weight-data custom-fm-data data
+         (data `,(append weight-data data custom-fm-data
                          (list
                           (cons 'menu menu-alist)
                           (cons 'resources resources)
