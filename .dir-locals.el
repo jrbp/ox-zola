@@ -4,4 +4,4 @@
  (org-mode . ((eval . (auto-fill-mode 1))))
  (markdown-mode . ((eval . (auto-fill-mode 1))))
  ("test/site/content-org"
-  . ((org-mode . ((eval . (org-hugo-auto-export-mode)))))))
+  . ((org-mode . ((eval . (org-zola-auto-export-mode)))))))
