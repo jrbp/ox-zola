@@ -19,6 +19,8 @@ Usually, people use a single static site generator, but if you have different we
 If something doesn't go the right way, remember that you can open an issue and we can work together for solving the problem. Enhancement requests are appreciated too.
 
 * Installation
+
+** emacs
 Since this package was born for my personal use and it's not perfect yet, I didn't make it available on Melpa.
 However, you can install it directly from this repository.
 
@@ -47,6 +49,10 @@ If you're on Doom Emacs like me, you can install with the =package!= macro:
 (package! ox-hugo)
 (package! ox-zola :recipe (:host github :repo "gicrisf/ox-zola"))
 #+end_src
+
+** needed shortcodes
+
+Copy the contents of =this-repo/shortcodes= to =your-site-repo/templates/shortcodes=.
 
 * Features
 - [X] Custom frontmatters parameters for Zola

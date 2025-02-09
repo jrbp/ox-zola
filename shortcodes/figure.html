@@ -1,0 +1,24 @@
+<figure {% if class %}class="{{class}}"{% endif %}>
+  {% if link %}
+    <a href="{{ link }}"{% if target %} target="{{ target }}"{% endif %} {% if rel %}rel="{{ rel }}"{% endif %}>
+  {% endif %}
+  <img src="{{ src | safe }}"
+       {% if alt %} alt={{ alt }} {% endif %}
+       {% if width %} width={{ width }} {% endif %}
+       {% if height %} height={{ height }} {% endif %}
+  >
+  {% if link %}
+    </a>
+  {% endif %}
+  {% if title or caption or attr %}
+    <figcaption>
+      {% if title %} <h4>{{ title }}</h4> {% endif %}
+      {% if caption or attr %} <p> {% endif %}
+      {% if caption %} {{ caption }} {% endif %}
+      {% if attrlink %} <a href="{{ attrlink }}"> {% endif %}
+      {% if attr %} "{{ attr }}" {% endif %}
+      {% if attrlink %} </a> {% endif %}
+      {% if caption or attr %} </p> {% endif %}
+    </figcaption>
+  {% endif %}
+</figure>
