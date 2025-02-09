@@ -26,7 +26,7 @@
 
 (declare-function ox-zola-export-wim-to-md "ox-zola")
 
-(defun org-zola-export-wim-to-md-after-save ()
+(defun ox-zola-export-wim-to-md-after-save ()
   "Function for `after-save-hook' to run `ox-zola-export-wim-to-md'.
 
 The exporting happens only when Org Capture is not in progress."
@@ -42,9 +42,9 @@ The exporting happens only when Org Capture is not in progress."
   (if org-zola-auto-export-mode
       ;; When the mode is enabled
       (progn
-        (add-hook 'after-save-hook #'org-zola-export-wim-to-md-after-save :append :local))
+        (add-hook 'after-save-hook #'ox-zola-export-wim-to-md-after-save :append :local))
     ;; When the mode is disabled
-    (remove-hook 'after-save-hook #'org-zola-export-wim-to-md-after-save :local)))
+    (remove-hook 'after-save-hook #'ox-zola-export-wim-to-md-after-save :local)))
 
 (provide 'org-zola-auto-export-mode)
 ;;; org-zola-auto-export-mode.el ends here
