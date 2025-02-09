@@ -590,6 +590,8 @@ are \"toml\" and \"yaml\"."
         (org-blackfriday-special-block special-block contents info)))
       )))
 
+;; The refrel usage here is a Hugo shortcode, we need to convert, or make our own shortcode.
+;; For now I have put line numbers (which are now off by 2) to see when used
 (defun ox-zola-link (link desc info)
   "Convert LINK to Markdown format.
 
@@ -643,7 +645,7 @@ and rewrite link paths to make blogging more seamless."
                                  anchor
                                (concat path anchor))))
                    ;; (message "[org-hugo-link DBG] plain-text org-id anchor: %S" anchor)
-                   (format "[%s]({{< relref \"%s\" >}})" (or desc path) ref))
+                   (format "646 [%s]({{< relref \"%s\" >}})" (or desc path) ref))
                (if desc
                    (format "[%s](%s)" desc path)
                  (format "<%s>" path)))))
@@ -892,10 +894,11 @@ and rewrite link paths to make blogging more seamless."
                                  ;; the "anchor" is actually the post's
                                  ;; slug.
                                  ((and (org-string-nw-p anchor) (not (string-prefix-p "#" anchor)))
-                                  (format "{{< relref \"%s\" >}}" anchor))
+                                  (format "895 {{< relref \"%s\" >}}" anchor))
                                  ;; Link to a non-post subtree, like a subheading in a post.
                                  ((or (org-string-nw-p ref) (org-string-nw-p anchor))
-                                  (format "{{< relref \"%s%s\" >}}" ref anchor))
+                                  ;;(format "898 {{< relref \"%s%s\" >}}" ref anchor))
+                                  (concat (format "/%s/" org-hugo-section) (format "%s%s" ref anchor)))
                                  (t
                                   ""))))
                              (t ;; attachments like foo.png
@@ -924,7 +927,7 @@ and rewrite link paths to make blogging more seamless."
               ;; Only link description, but no link attributes.
               (desc
                (let* ((path-has-space (and
-                                       (not (string-prefix-p "{{< relref " path))
+                                       (not (string-prefix-p "927 {{< relref " path))
                                        (string-match-p "\\s-" path)))
                       (path (if path-has-space
                                 ;; https://github.com/kaushalmodi/ox-hugo/issues/376
@@ -944,7 +947,7 @@ and rewrite link paths to make blogging more seamless."
                          ;; https://stackoverflow.com/q/25706012/1219634.
                          (replace-regexp-in-string ":" "&colon;" (org-link-unescape path)))))
               ;; Neither link description, nor link attributes.
-              ((string-prefix-p "{{< relref " path)
+              ((string-prefix-p "947 {{< relref " path)
                (format "[%s](%s)" path path))
               ((org-string-nw-p path)
                (format "<%s>" path))
