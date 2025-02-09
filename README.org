@@ -2,6 +2,8 @@
 #+author: Giovanni Crisalfi
 [[https://www.gnu.org/licenses/gpl-3.0][https://img.shields.io/badge/License-GPL%20v3-blue.svg]]
 
+*This is a fork I'm hacking on to get working. I don't really recommend using it at this stage.*
+
 Ox-zola is an Org exporter backend that streamlines Emacs users' conversion from Org mode to Markdown, caring for both the body and the TOML frontmatter in a way that's compatible with [[https://www.getzola.org/][the static site generator Zola]].
 
 It started as a fork of the famous =ox-hugo= exporter, but it now is a different package that runs on top of =ox-hugo= itself.
@@ -53,6 +55,9 @@ If you're on Doom Emacs like me, you can install with the =package!= macro:
 ** needed shortcodes
 
 Copy the contents of =this-repo/shortcodes= to =your-site-repo/templates/shortcodes=.
+
+* Usage
+Similar behavior to ~C-c C-e H H~ from ox-hugo is through ~M-x ox-zola-export-wim-to-md~.
 
 * Features
 - [X] Custom frontmatters parameters for Zola
