@@ -24,15 +24,15 @@
 
 ;;; Code:
 
-(declare-function org-zola-export-wim-to-md "ox-zola")
+(declare-function ox-zola-export-wim-to-md "ox-zola")
 
 (defun org-zola-export-wim-to-md-after-save ()
-  "Function for `after-save-hook' to run `org-zola-export-wim-to-md'.
+  "Function for `after-save-hook' to run `ox-zola-export-wim-to-md'.
 
 The exporting happens only when Org Capture is not in progress."
   (unless (eq real-this-command 'org-capture-finalize)
     (save-excursion
-      (org-zola-export-wim-to-md))))
+      (ox-zola-export-wim-to-md))))
 
 ;;;###autoload
 (define-minor-mode org-zola-auto-export-mode
